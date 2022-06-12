@@ -1,0 +1,44 @@
+{% extends 'index.html'%}
+
+{% block contenido %}
+<div class="  px-4 sm:px-8 place-content-center">
+            <div class="grid grid-cols-2 inline-block py-8 m-2 shadow rounded-lg overflow-hidden">
+                <div class="px-4 justify-self-center">
+                    <img src="{{url_for('static', filename='resources/ima1.png')}}" alt="grafica_1">
+                </div>
+                <div class="relative ">
+                    <div class="flex ">
+                        <span class="text-white bg-gradient-to-r from-indigo-700 to-slate-900 py-6 px-8 m-6 text-justify rounded-md text-base">Esta funcionalidad compara diferentes caracteristicas de dos partidos políticos.</span>
+                    </div>
+                    <p class="p-4 text-slate-900 font-semibold">partido A: {{p1}}</p>
+                    <p class="p-4 text-slate-900 font-semibold">partido B: {{p2}}</p>
+                    <div class="static p-6 bg-slate-900 text-white rounded-md m-4">
+                        <p>Candidato más votado en {{p1}}:</p>
+                        <p class="text-green-300 font-semibold">{{c1}}</p>
+                        <p>Candidato más votado en {{p2}}:</p>
+                        <p class="text-green-300 font-semibold">{{c2}}</p>
+                    </div>
+                </div>
+                <div class=" col-span-2">
+                        <span  class=" justify-self-stretch overflow-y-scroll h-screen max-h-[14rem] inline-block  shadow rounded-lg overflow-hidden">{{r1 | safe}}</span>
+                        <span  class=" justify-self-stretch overflow-y-scroll h-screen max-h-[14rem] inline-block  shadow rounded-lg overflow-hidden">{{r2 | safe}}</span>
+                </div>
+
+            </div>
+<div class="flex justify-center m-10">
+                <form action="/funcion3" method="POST">
+                    <select name="partido_1" class="block py-2.5 px-0 w-80 text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                        {% for partido in partidos%}
+                        <option >{{partido}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="partido_2" class="block py-2.5 px-0 w-80 text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                        {% for partido in partidos%}
+                        <option >{{partido}}</option>
+                        {% endfor %}
+                    </select>
+                    <button class="bg-slate-900 text-white rounded-md sm:px-8 py-2 mt-6 hover:bg-green-300 transition duration-700">Busqueda</button>
+                </form>
+            </div>
+</div>
+{% endblock %}

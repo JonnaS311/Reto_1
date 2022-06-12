@@ -1,0 +1,31 @@
+{% extends 'index.html'%}
+	{% block head %}
+    <title>Partidos políticos</title>
+    {% endblock %}
+{% block contenido %}
+<div class=" py-6 mx-auto text-[14px]">
+        <div class=" grid grid-cols-2 divide-x px-4 sm:px-8">
+            <div class=" overflow-scroll h-screen max-h-[32rem] inline-block  shadow rounded-lg overflow-hidden">
+                 {{candidatos | safe}}
+            </div>
+            <div class="sm:py-4 px-8 grid grid-cols-1 place-content-center">
+                <span class="text-white bg-gradient-to-r from-indigo-700 to-slate-900 py-6 px-4 mb-4 text-justify rounded-md text-base">
+                    La siguiente funcionalidad permite al usuario conocer la cantidad de votos que obtuvo cada candidato, a partir de su partido político, además de conocer el nombre del candidato con mayor cantidad de voto.
+                </span>
+                <h1 class="text-xl text-center mb-10 font-medium">Seleccione el partido</h1>
+                <form action="/funcion1" method="POST" class="flex justify-center">
+                <select name="partidos" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                    {% for partido in partidos%}
+                    <option >{{partido}}</option>
+                    {% endfor %}
+                </select>
+                <button class="bg-slate-900 text-white rounded-md sm:px-8 py-2 mt-6 hover:bg-green-300 transition duration-700 ml-2">buscar</button>
+                </form>
+                {% for val in votados%}
+                <p class="sm:py-2 mt-5 text-center text-base">candidato más votados: {{val}} </p>
+                {% endfor %}
+        </div>
+        </div>
+
+</div>
+{% endblock %}

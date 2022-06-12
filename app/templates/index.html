@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+	<link rel="shortcut icon" href="{{url_for('static', filename='resources/colombia.png')}}" type="image/x-icon">
+	<script src="https://cdn.tailwindcss.com"></script>
+	{% block head %}
+    <title>Inicio</title>
+    {% endblock %}
+</head>
+<body>
+    {% block menu %}
+   <div class="relative bg-slate-900 ">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6">
+		<div class="flex justify-between items-center border-b-2 py-6 md:justify-start md:space-x-10">
+			<div class="flex justify-start lg:w-0 lg:flex-1">
+				<a href="/">
+					<span class="sr-only">Workflow</span>
+					<img class="h-8 w-auto sm:h-10" src="{{url_for('static', filename='resources/colombia.png')}}" alt="">
+				</a>
+				<span class="text-green-300 px-10 font-extrabold tracking-wider">Elecciones Congreso 2018 🚩</span>
+			</div>
+			<nav class="hidden md:flex space-x-20">
+				<a href="/funcion1" class="text-base font-medium text-slate-50 hover:text-slate-900 hover:bg-indigo-50 rounded-md px-4 py-2 transition duration-700  "> Función 1 </a>
+				<a href="/funcion2" class="text-base font-medium text-slate-50 hover:text-slate-900 hover:bg-indigo-50 rounded-md px-4 py-2 transition duration-700 "> Función 2 </a>
+				<a href="/funcion3" class="text-base font-medium text-slate-50 hover:text-slate-900 hover:bg-indigo-50 rounded-md px-4 py-2 transition duration-700 "> Función 3 </a>
+			</nav>
+		</div>
+	</div>
+</div>
+    {% endblock %}
+	{% block contenido %}
+    {% endblock %}
+	<footer class=" static bg-slate-900 text-white text-lg h-full py-2 flex justify-center grid grid-rows-2 text-center">
+		<p class="text-white  text-xl ">Reto 1 🎲 </p>
+		<div class="relative">
+			<p>Introduccion a la ciencia de datos</p>
+			<p class="text-green-300">Jonnathan Sotelo Rodríguez 20202020040</p>
+		</div>
+	</footer>
+<footer>
+	<div class="bg-green-900">
+	</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends 'index.html'%}
+
+{% block contenido %}
+
+    <div class=" py-6 mx-auto text-[14px]">
+        <header class=" bg-slate-900 text-white py-6 px-8 mb-4 ml-10 shadow rounded-lg max-w-[95%] inline-block overflow-hidden">
+            <div class="grid grid-cols-2 place-items-center">
+            <p class="text-justify py-2 text-base">Las elecciones legislativas de Colombia de 2018 se realizaron el domingo 11 de marzo. En ellas se eligieron los miembros de ambas cámaras del Congreso de Colombia.
+En el Senado de la República se eligieron 108 senadores, de los cuales 100 son de circunscripción nacional, dos de circunscripción especial indígena, cinco que representan al partido FARC (tras lo acordado en el proceso de paz de La Habana), y un senador restante quién será el candidato a la Presidencia de la República que ocupe el segundo lugar de las votaciones para elegir Presidente.
+En la Cámara de Representantes se eligieron 171 parlamentarios, de los cuales 161 corresponden a los 32 departamentos y al Distrito Capital, dos por la circunscripción de las comunidades afrodescendientes, uno por la circunscripción de las comunidades indígenas, y uno por la circunscripción internacional</p>
+            <img src="{{url_for('static', filename='resources/flag_Col.png')}}" alt="" width="300" height="300">
+            </div>
+            <a class="font-bold underline decoration-wavy text-base hover:text-green-300" href="https://www.datos.gov.co/Resultados-Electorales/RESULTADOS-ELECTORALES-2018-SENADO-DE-LA-REPUBLICA/75f2-fe2s">Link a datos abiertos</a>
+        </header>
+        <div class=" grid grid-cols-2 px-4 sm:px-8">
+            <div class=" overflow-scroll h-screen max-h-[32rem] inline-block  shadow rounded-lg overflow-hidden">
+                 {{data | safe}}
+            </div>
+            <div class="px-8">
+                <div class="items-center justify-between sm:py-4">
+                <h1 class="text-[20px] text-center py-4">Votos por partido político</h1>
+                 <div class="flex justify-center overflow-y-scroll h-screen max-h-[27rem] inline-block  shadow rounded-lg">
+                        {{votos | safe}}
+                 </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
